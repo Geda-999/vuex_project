@@ -1,6 +1,7 @@
 # Vue 2 + Vite + tailwindcss
 
-This template should help get you started developing with Vue 2 in Vite.
+- 初始化项目
+
 
 ## Recommended IDE Setup
 
