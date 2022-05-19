@@ -1,27 +1,22 @@
 <template>
   <div class="home">
-    <div class="flex items-center justify-center">
-        <img class="w-40 h-40" alt="Vue logo" src="../assets/logo.png" />
-    </div>
-    
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <my-addition></my-addition>
 
-    <div class="text-komabig">小马大字体</div>
-    <div class="bg-bootstrap_primary text-white">像我么</div>
-    <div class="bg-bootstrap_success text-white">像我么</div>
-    <div class="bg-bootstrap_info text-white">像我么</div>
-    <div class="bg-red-600 h-screen"></div>
+    <p>----------------------------------------------------------------</p>
+
+    <my-subtraction></my-subtraction>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "../components/HelloWorld.vue";
+import Addition from '../components/Addition.vue'
+import Subtraction from '../components/Subtraction.vue'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    HelloWorld,
+    'my-addition': Addition,
+    'my-subtraction': Subtraction,
   },
-};
+}
 </script>
