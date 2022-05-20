@@ -4,6 +4,8 @@ import axios from 'axios'
 // axios 发起请求他是一个异步操作
 // 所以说 咋们要把axios定义在actions里面的节点中
 
+import persistedState from 'vuex-persistedstate'
+
 // 引入模块
 import animal from './animal'
 import acom from './acom'
@@ -147,4 +149,10 @@ export default new Vuex.Store({
     animal,
     acom,
   },
+  plugins: [
+    persistedState({
+      key: 'id', // 浏览器中的名字
+      paths: ['animal', 'acom'], // 需要存储起来的参数模块
+    }),
+  ],
 })
