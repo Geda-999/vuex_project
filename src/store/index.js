@@ -15,7 +15,10 @@ export default new Vuex.Store({
     // 咋们标记为下一个Id
     // 设置一个没有被占用的Id就可以
     nextId: 5,
+    // 切换按钮的key值
+    viewKey: 'all',
   },
+
   mutations: {
     // 第一个参数永久是自身state
     // 第二个参数咋们可以自定义了
@@ -26,11 +29,13 @@ export default new Vuex.Store({
       //   赋值操作
       state.list = list
     },
+
     // 为 store 中的 inputValue 赋值
     setInputValue(state, val) {
       // state：这是永久是自身.inputValue：这是state中的参数名称 = val：这是从外界调过来了
       state.inputValue = val
     },
+
     // 添加列表项
     addItem(state) {
       // 定义一个常量
@@ -46,6 +51,7 @@ export default new Vuex.Store({
       // 清空输入框
       state.inputValue = ''
     },
+
     // 根据Id删除对应的任务事项
     removeItem(state, id) {
       // 根据Id查找对应的索引
@@ -66,7 +72,31 @@ export default new Vuex.Store({
         state.list.splice(i, 1)
       }
     },
+
+    // 修改列表项的选中状态
+    changeStatus(state, param) {
+      const i = state.list.findIndex(x => x.id === param.id)
+
+      if (i !== -1) {
+        state.list[i].done = param.status
+      }
+    },
+
+    // 清除已完成的任务
+    // 在这里咋们先接收第一个参数state
+    leanDone(state) {
+      // 调用的filter过滤器
+      // 所以说整个filter调用完成之后会放回一个新数组
+      // 那么咋们在重新赋值给state.list就行了
+      state.list = state.list.filter(x => x.done === false)
+    },
+
+    // 修改视图的关键字
+    changeViewKey(state, key) {
+      state.viewKey = key
+    },
   },
+
   actions: {
     // 咋们在这新增一个函数
     // 这里面咋们先收一个参数叫context
@@ -81,6 +111,32 @@ export default new Vuex.Store({
         // 咋们把data做位参数
         context.commit('initList', data)
       })
+    },
+  },
+
+  getters: {
+    // 统计未完成的任务的条数
+    unDoneLength(state) {
+      // 调用的filter过滤器
+      // 先从state.list数组中调用的filter 把那些未完成的任务 给他过滤出来
+      // 然后形成一个新的数组 再调用数组的点length属性 把咋们对应的长度给他return出去
+      // 【x代表里面的每一项】
+      // 【 x.done 如果他等于 false】的话就满足我们的需求，就把他过滤出来 最后会形成一个新的数组
+      return state.list.filter(x => x.done === false).length
+    },
+
+    // 判断全部、已完成、未完成的切换效果
+    infoList(state) {
+      if (state.viewKey === 'all') {
+        return state.list
+      }
+      if (state.viewKey === 'undone') {
+        return state.list.filter(x => !x.done)
+      }
+      if (state.viewKey === 'done') {
+        return state.list.filter(x => x.done)
+      }
+      return state.list
     },
   },
 })
