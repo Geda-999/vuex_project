@@ -1,0 +1,9 @@
+{
+  "order": [
+    { "goodsId": "1001", "Icon": "mail", "name": "山东利手机", "number": 1 },
+    { "goodsId": "1002", "Icon": "appstore", "name": "华为手机", "number": 2 },
+    { "goodsId": "1003", "Icon": "setting", "name": "小米手机", "number": 1 },
+    { "goodsId": "1004", "Icon": "chrome", "name": "天音手机", "number": 3 },
+    { "goodsId": "1002", "Icon": "github", "name": "华为手机", "number": 1 }
+  ]
+}

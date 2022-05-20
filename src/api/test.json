@@ -1,0 +1,15 @@
+{
+  "stock": [
+    { "goodsId": "1001", "name": "苹果手机", "number": 2 },
+    { "goodsId": "1002", "name": "华为手机", "number": 5 },
+    { "goodsId": "1003", "name": "小米手机", "number": 3 },
+    { "goodsId": "1004", "name": "天音手机", "number": 12 }
+  ],
+  "order": [
+    { "goodsId": "1001", "name": "苹果手机", "number": 1 },
+    { "goodsId": "1002", "name": "华为手机", "number": 2 },
+    { "goodsId": "1003", "name": "小米手机", "number": 1 },
+    { "goodsId": "1004", "name": "天音手机", "number": 3 },
+    { "goodsId": "1002", "name": "华为手机", "number": 1 }
+  ]
+}

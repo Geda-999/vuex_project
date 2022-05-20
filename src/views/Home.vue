@@ -132,7 +132,7 @@ export default {
 
 .dt_list {
   width: 500px;
-  margin-top: 10px;
+  margin: 14px 0px 0px 460px;
 }
 
 .footer {

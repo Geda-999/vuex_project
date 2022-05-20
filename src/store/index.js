@@ -4,6 +4,10 @@ import axios from 'axios'
 // axios 发起请求他是一个异步操作
 // 所以说 咋们要把axios定义在actions里面的节点中
 
+// 引入模块
+import animal from './animal'
+import acom from './acom'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -138,5 +142,9 @@ export default new Vuex.Store({
       }
       return state.list
     },
+  },
+  modules: {
+    animal,
+    acom,
   },
 })
